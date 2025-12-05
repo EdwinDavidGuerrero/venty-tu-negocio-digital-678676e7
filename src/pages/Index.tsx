@@ -5,6 +5,7 @@ import Benefits from "@/components/landing/Benefits";
 import Pricing from "@/components/landing/Pricing";
 import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
+import WhatsAppButton from "@/components/landing/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
