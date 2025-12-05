@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getWhatsAppUrl } from "./WhatsAppButton";
 
 const CTA = () => {
   return (
@@ -22,12 +23,16 @@ const CTA = () => {
             Únete a cientos de empresas colombianas que confían en Venty para su gestión de documentos electrónicos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="group">
-              Prueba Gratis por 30 Días
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="hero" size="xl" className="group" asChild>
+              <a href={getWhatsAppUrl("Hola, quiero una prueba gratis de 30 días de Venty")} target="_blank" rel="noopener noreferrer">
+                Prueba Gratis por 30 Días
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
-            <Button variant="heroOutline" size="xl">
-              Hablar con un Asesor
+            <Button variant="heroOutline" size="xl" asChild>
+              <a href={getWhatsAppUrl("Hola, quiero hablar con un asesor de Venty")} target="_blank" rel="noopener noreferrer">
+                Hablar con un Asesor
+              </a>
             </Button>
           </div>
         </div>

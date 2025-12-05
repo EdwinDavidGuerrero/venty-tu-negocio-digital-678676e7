@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getWhatsAppUrl } from "./WhatsAppButton";
 
 const Hero = () => {
   const highlights = [
@@ -37,12 +38,16 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-            <Button size="xl" className="group">
-              Comenzar Ahora
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button size="xl" className="group" asChild>
+              <a href={getWhatsAppUrl("Hola, quiero comenzar con Venty")} target="_blank" rel="noopener noreferrer">
+                Comenzar Ahora
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
-            <Button variant="outline" size="xl">
-              Ver Demo
+            <Button variant="outline" size="xl" asChild>
+              <a href={getWhatsAppUrl("Hola, me gustaría ver una demo de Venty")} target="_blank" rel="noopener noreferrer">
+                Ver Demo
+              </a>
             </Button>
           </div>
 

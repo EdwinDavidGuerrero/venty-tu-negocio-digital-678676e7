@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getWhatsAppUrl } from "./WhatsAppButton";
 
 const plans = [
   {
@@ -109,8 +110,15 @@ const Pricing = () => {
               <Button
                 className="w-full"
                 variant={plan.popular ? "default" : "outline"}
+                asChild
               >
-                Comenzar Ahora
+                <a 
+                  href={getWhatsAppUrl(`Hola, me interesa el plan ${plan.name} de Venty`)} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Comenzar Ahora
+                </a>
               </Button>
             </div>
           ))}
