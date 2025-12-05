@@ -1,8 +1,17 @@
+import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import ventyLogo from "@/assets/venty-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const navigateToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <footer id="contacto" className="bg-foreground text-background py-16">
@@ -34,11 +43,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-background mb-4">Servicios</h4>
             <ul className="space-y-3">
-              <li><a href="#servicios" className="text-background/70 hover:text-background transition-colors">Factura Electrónica</a></li>
-              <li><a href="#servicios" className="text-background/70 hover:text-background transition-colors">POS Electrónico</a></li>
-              <li><a href="#servicios" className="text-background/70 hover:text-background transition-colors">Nómina Electrónica</a></li>
-              <li><a href="#servicios" className="text-background/70 hover:text-background transition-colors">Documento Soporte</a></li>
-              <li><a href="#servicios" className="text-background/70 hover:text-background transition-colors">Tienda Nube</a></li>
+              <li><a href="#servicios" onClick={(e) => navigateToSection(e, 'servicios')} className="text-background/70 hover:text-background transition-colors">Factura Electrónica</a></li>
+              <li><a href="#servicios" onClick={(e) => navigateToSection(e, 'servicios')} className="text-background/70 hover:text-background transition-colors">POS Electrónico</a></li>
+              <li><a href="#servicios" onClick={(e) => navigateToSection(e, 'servicios')} className="text-background/70 hover:text-background transition-colors">Nómina Electrónica</a></li>
+              <li><a href="#servicios" onClick={(e) => navigateToSection(e, 'servicios')} className="text-background/70 hover:text-background transition-colors">Documento Soporte</a></li>
+              <li><a href="#servicios" onClick={(e) => navigateToSection(e, 'servicios')} className="text-background/70 hover:text-background transition-colors">Tienda Nube</a></li>
             </ul>
           </div>
 
@@ -46,7 +55,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-background mb-4">Recursos</h4>
             <ul className="space-y-3">
-              <li><a href="#planes" className="text-background/70 hover:text-background transition-colors">Planes y Precios</a></li>
+              <li><a href="#planes" onClick={(e) => navigateToSection(e, 'planes')} className="text-background/70 hover:text-background transition-colors">Planes y Precios</a></li>
               <li><a href="#" className="text-background/70 hover:text-background transition-colors">Centro de Ayuda</a></li>
               <li><a href="#" className="text-background/70 hover:text-background transition-colors">Documentación</a></li>
               <li><a href="#" className="text-background/70 hover:text-background transition-colors">Blog</a></li>
