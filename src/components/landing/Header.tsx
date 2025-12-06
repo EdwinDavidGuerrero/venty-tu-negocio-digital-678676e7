@@ -3,9 +3,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ventyLogo from "@/assets/venty-logo.png";
 import { getWhatsAppUrl } from "./WhatsAppButton";
+import LoginModal from "./LoginModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const navLinks = [
     { href: "servicios", label: "Servicios" },
@@ -43,10 +45,8 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <a href={getWhatsAppUrl("Hola, quiero iniciar sesión en Venty")} target="_blank" rel="noopener noreferrer">
-              Iniciar Sesión
-            </a>
+          <Button variant="ghost" size="sm" onClick={() => setIsLoginModalOpen(true)}>
+            Iniciar Sesión
           </Button>
           <Button size="sm" asChild>
             <a href={getWhatsAppUrl("Hola, quiero una prueba gratis de Venty")} target="_blank" rel="noopener noreferrer">
@@ -83,10 +83,8 @@ const Header = () => {
               </button>
             ))}
             <div className="flex flex-col gap-3 pt-4 border-t border-border">
-              <Button variant="outline" className="w-full" asChild>
-                <a href={getWhatsAppUrl("Hola, quiero iniciar sesión en Venty")} target="_blank" rel="noopener noreferrer">
-                  Iniciar Sesión
-                </a>
+              <Button variant="outline" className="w-full" onClick={() => setIsLoginModalOpen(true)}>
+                Iniciar Sesión
               </Button>
               <Button className="w-full" asChild>
                 <a href={getWhatsAppUrl("Hola, quiero una prueba gratis de Venty")} target="_blank" rel="noopener noreferrer">
@@ -97,6 +95,10 @@ const Header = () => {
           </nav>
         </div>
       )}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+      />
     </header>
   );
 };
